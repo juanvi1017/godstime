@@ -1,0 +1,67 @@
+.product-page-img{
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.zoom{
+    transform: scale(var(--escala, 1));
+    transition: transform 0.25s;
+}
+.zoom:hover{
+    --escala: 1.14;
+    cursor:pointer;
+}
+
+.related{
+    border-top: 1px solid grey ;
+}
+
+.star{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+.reviews-section .reviews{
+    -webkit-box-shadow: inset 0px 50px 17px -54px rgba(0,0,0,0.3);
+    -moz-box-shadow: inset 0px 50px 17px -54px rgba(0,0,0,0.3);
+    box-shadow: inset 0px 50px 17px -54px rgba(0,0,0,0.3);
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+    /* padding-top: 1rem; */
+}
+.reviews-item .user img{
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.reviews-item .feedback{
+    font-weight: lighter;
+    color: #3f3f3f;
+}
+
+.add-to-bag-btn{
+    padding: .5rem 2rem;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+.add-to-bag-btn .shopping-bag{
+    width: 25px;
+    height: 25px;
+}
+
+.add-to-favs-btn{
+    padding: .5rem 1rem;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.add-to-favs-btn .fav-heart{
+    width: 25px;
+    height: 25px;
+}

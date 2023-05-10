@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import "./styles/app.css";
+import Home from './components/Home';
+import Relojes from './components/Relojes';
+import Footer from './components/Footer';
+import ProductPage from './components/ProductPage'
+import { chatWhatsApp } from './util/javascript'
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/relojes' element={<Relojes />} />
+        <Route path="/products/:productId" element={<ProductPage/>} />
+      </Routes>
+      <img class="btn-whatsapp" src="https://clientes.dongee.com/whatsapp.png" width="64" height="64" alt="Whatsapp"
+        onClick={() => chatWhatsApp('')}>
+      </img>
+      <Footer />
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
