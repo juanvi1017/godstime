@@ -9,7 +9,7 @@ function Footer() {
             <div className='row col-12 p-0 m-0'>
                 <div className='col-md-6'>
                     <Link to ="/" className='d-flex align-items-center'>
-                        <img className='footer-logo' src={whiteLogo}/>
+                        <img className='footer-logo' src={whiteLogo} alt=''/>
                         <h3 className='text-uppercase font-weight-bold m-0 text-color'>God's Time.</h3>
                     </Link>
                     <p className='text-uppercase footer-text'>ESTAMOS AQUÍ PARA AYUDARLE A ENCONTRAR SU PRÓXIMO ACCESORIO. DISFRUTA Y PÁSATELO BIEN</p>
@@ -17,18 +17,18 @@ function Footer() {
                 <div className='col-md-3 social-media'>
                     <ul>
                         <li className="footer-title">social media</li>
-                        <li><a href="#" className="footer-link">facebook</a></li>
-                        <li><a href="#" className="footer-link">instagram</a></li>
-                        <li><a href="#" className="footer-link">tiktok</a></li>
+                        <li><a href="/#" className="footer-link">facebook</a></li>
+                        <li><a href="/#" className="footer-link">instagram</a></li>
+                        <li><a href="/#" className="footer-link">tiktok</a></li>
                     </ul>
                 </div>
                 <div className='col-md-3 help-center'>
                     <ul>
                         <li className="footer-title">about god's time</li>
-                        <li><a href="#" className="footer-link">faq</a></li>
+                        <li><a href="/#" className="footer-link">faq</a></li>
                         <li><Link to={"/addresses"} className="footer-link">addresses</Link></li>
-                        <li><a href="#" className="footer-link">term of service</a></li>
-                        <li><a href="#" className="footer-link">policy service</a></li>
+                        <li><a href="/#" className="footer-link">term of service</a></li>
+                        <li><a href="/#" className="footer-link">policy service</a></li>
                     </ul>
                 </div>
             </div>

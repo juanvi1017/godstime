@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "../styles/product-page.css"
-import { productsData } from './../data/productsData';
-import { chatWhatsApp } from '../util/javascript';
+import { productsData } from '../data/productsData';
+import { chatWhatsApp, getRandomIntInclusive } from '../util/javascript';
 
 // Images
 import whiteShoppingBagIcon from "../images/icons/white-shopping-bag.png";
@@ -16,6 +16,7 @@ const ProductPage = () => {
 
     const [myProduct, setMyProduct] = useState(null)
     const [loading, setLoading] = useState(true);
+    const [numberOnline, setNumberOnline] = useState(4);
 
 
     useEffect(() => {
@@ -26,7 +27,15 @@ const ProductPage = () => {
         const targetedProduct = productsData.find((product) => product.id === productId);
         setMyProduct(targetedProduct);
         setLoading(false);
-    }, []);
+    }, [productId]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const number=getRandomIntInclusive(4, 10);
+            setNumberOnline(number);
+        }, 5000);
+        return () => clearInterval(interval);
+      }, []);
 
     return (
         <div className='product-page-section section'>
@@ -37,7 +46,7 @@ const ProductPage = () => {
                 <div className='container'>
                     <div className='col-12 row m-0 p-0 align-items-center'>
                         <div className='col-md-6 pt-4'>
-                            <img className='product-page-img w-100 zoom' src={myProduct.img} />
+                            <img className='product-page-img w-100 zoom' src={myProduct.img} alt=''/>
                         </div>
                         <div className='col-md-6 py-4'>
                             <h2 className='text-uppercase font-weight-bold'>{myProduct.title}</h2>
@@ -45,8 +54,11 @@ const ProductPage = () => {
                             {myProduct.salePrice ? <p className='product-price-sale'>COP {myProduct.salePrice}</p> : ""}
                             <p className='font-weight-light'>{myProduct.description}</p>
                             <div className='product-buttons d-flex align-items-center'>
-                                <button onClick={() => chatWhatsApp(myProduct.title)} className='add-to-bag-btn text-uppercase d-flex align-items-center justify-content-center mt-4'><img className='shopping-bag mr-1' src={myProduct.carted ? addedToBag : whiteShoppingBagIcon} />Comprar</button>
-                                <button className='add-to-favs-btn text-uppercase d-flex align-items-center mt-4'><img className='fav-heart' src={myProduct.faved ? faved : heartIcon} /></button>
+                                <button onClick={() => chatWhatsApp(myProduct.title)} className='add-to-bag-btn text-uppercase d-flex align-items-center justify-content-center mt-4'><img className='shopping-bag mr-1' src={myProduct.carted ? addedToBag : whiteShoppingBagIcon} alt=''/>Comprar</button>
+                                <button className='add-to-favs-btn text-uppercase d-flex align-items-center mt-4'><img className='fav-heart' src={myProduct.faved ? faved : heartIcon} alt='' /></button>
+                                <div className='random-user add-to-bag-btn text-uppercase d-flex align-items-center justify-content-center mt-4'>
+                                    {numberOnline} usuarios en linea
+                                </div>
                             </div>
                         </div>
                     </div>

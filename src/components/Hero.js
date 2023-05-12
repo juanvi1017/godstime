@@ -20,7 +20,7 @@ function Hero() {
         </div>
         <div className='carousel-form'>
           <span className='carousel-title'>GOD'S TIME</span>
-          <p className='carousel-desc'>we are in the industry since 1873.</p>
+          <p className='carousel-desc'>we are in the industry since 2021.</p>
           <button className='btn carousel-btn-shop'>shop now</button>
         </div>
       </div>
@@ -30,7 +30,7 @@ function Hero() {
         </div>
         <div className='carousel-form'>
         <span className='carousel-title'>GOD'S TIME</span>
-        <p className='carousel-desc'>we are in the industry since 1873.</p>
+        <p className='carousel-desc'>we are in the industry since 2021.</p>
         <button className='btn carousel-btn-shop'>shop now</button>
       </div>
       </div>
@@ -40,7 +40,7 @@ function Hero() {
         </div>
         <div className='carousel-form'>
         <span className='carousel-title'>GOD'S TIME</span>
-        <p className='carousel-desc'>we are in the industry since 1873.</p>
+        <p className='carousel-desc'>we are in the industry since 2021.</p>
         <button className='btn carousel-btn-shop'>shop now</button>
       </div>
       </div>
