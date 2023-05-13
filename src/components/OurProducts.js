@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/our-products.css";
 import "../styles/popup.css"
@@ -16,6 +16,8 @@ import menuIcon from "../images/icons/menu.png"
 import slideIcon from "../images/icons/slide.png"
 import saleTag from "../images/icons/sale-tag.png"
 
+import { get } from "../apirest";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -30,10 +32,20 @@ function OurProducts() {
   const navigate = useNavigate();
 
   const [isWide, setIsWide] = useState(false);
+  const [data, setData] = useState([]);
 
+  const getSales = useCallback(async () => {
+    const response = await get("product/list")
+    if (response.status === 200) {
+      setData(response.data.data)
+    }
+    else {
+      return response;
+    };
+  }, [])
 
   useEffect(() => {
-
+    getSales();
     function handleWidth() {
       if (window.innerWidth >= 767) {
         setIsWide(true);
@@ -46,7 +58,8 @@ function OurProducts() {
     return () => {
       window.removeEventListener('resize', handleWidth);
     };
-  }, []);
+  }, [getSales]);
+
 
   const [showMenu, setShowMenu] = useState(false)
   const [showSwiper, setShowSwiper] = useState(true)
@@ -96,10 +109,10 @@ function OurProducts() {
             >
               <div className='section-container'>
                 {
-                  productsData.map((product) => {
+                  data.map((product) => {
                     return (
                       <SwiperSlide className='product-item col-md-4 justify-content-center' key={product.id}>
-                        {product.salePrice ? <img className='sale-tag' src={saleTag} alt='' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Oferta"/> : ""}
+                        {product.salePrice ? <img className='sale-tag' src={saleTag} alt='' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Oferta" /> : ""}
                         <Link to={`/products/${product.id}`}>
                           <div className='product-buttons'>
                             <img className='product-icon add-to-cart-icon' src={product.carted ? addedToBag : shoppingBagIcon} alt="add to cart" />
@@ -108,7 +121,7 @@ function OurProducts() {
                             <img className="product-img zoomProduct" src={product.img} alt={product.title} />
                           </div>
                           <div className='product-info'>
-                            <span className='product-title'>{product.title}</span>
+                            <span className='product-title'>{product.name}</span>
                             <p className={product.salePrice ? 'price-on-sale mb-0' : "product-price"}>COP {product.price}</p>
                             {product.salePrice ? <p className='product-price-sale'>COP {product.salePrice}</p> : ""}
                           </div>
@@ -123,7 +136,7 @@ function OurProducts() {
             <div className='section-container'>
               <div className='d-flex row m-0 p-0'>
                 {
-                  productsData.map((product) => {
+                  data.map((product) => {
                     return (
                       <div className='product-item col-md-4 col-sm-6 justify-content-center' key={product.id}>
                         {product.salePrice ? <img className='sale-tag' src={saleTag} alt='' /> : ""}
@@ -135,7 +148,7 @@ function OurProducts() {
                             <img className="product-img zoomProduct" src={product.img} alt={product.title} />
                           </div>
                           <div className='product-info'>
-                            <span className='product-title'>{product.title}</span>
+                            <span className='product-title'>{product.name}</span>
                             <p className={product.salePrice ? 'price-on-sale mb-0' : "product-price"}>COP {product.price}</p>
                             {product.salePrice ? <p className='product-price-sale'>COP {product.salePrice}</p> : ""}
                           </div>

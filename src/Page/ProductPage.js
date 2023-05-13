@@ -57,7 +57,7 @@ const ProductPage = () => {
                                 <button onClick={() => chatWhatsApp(myProduct.title)} className='add-to-bag-btn text-uppercase d-flex align-items-center justify-content-center mt-4'><img className='shopping-bag mr-1' src={myProduct.carted ? addedToBag : whiteShoppingBagIcon} alt=''/>Comprar</button>
                                 <button className='add-to-favs-btn text-uppercase d-flex align-items-center mt-4'><img className='fav-heart' src={myProduct.faved ? faved : heartIcon} alt='' /></button>
                                 <div className='random-user add-to-bag-btn text-uppercase d-flex align-items-center justify-content-center mt-4'>
-                                    {numberOnline} usuarios en linea
+                                    {numberOnline} en linea
                                 </div>
                             </div>
                         </div>
