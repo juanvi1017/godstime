@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import "../styles/hero.css"
 
 // Images
@@ -7,10 +8,13 @@ import proDiver40021 from "../images/hero-slides/invicta-pro-diver-40021.jpg"
 import menSlide from "../images/hero-slides/invicta-men-pro-diver-24765.jpg"
 
 function Hero() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const nextButton = document.querySelector('.carousel-control-next-icon');
     nextButton.click();
   }, [])
+
   return (
   <div id="carouselExampleFade" className="carousel slide carousel-fade" data-ride="carousel">
     <div className="carousel-inner">
@@ -21,7 +25,7 @@ function Hero() {
         <div className='carousel-form'>
           <span className='carousel-title'>GOD'S TIME</span>
           <p className='carousel-desc'>we are in the industry since 2021.</p>
-          <button className='btn carousel-btn-shop'>shop now</button>
+          <button className='btn carousel-btn-shop'  onClick={() => navigate('/relojes/store')}>shop now</button>
         </div>
       </div>
       <div className="carousel-item">
@@ -31,7 +35,7 @@ function Hero() {
         <div className='carousel-form'>
         <span className='carousel-title'>GOD'S TIME</span>
         <p className='carousel-desc'>we are in the industry since 2021.</p>
-        <button className='btn carousel-btn-shop'>shop now</button>
+        <button className='btn carousel-btn-shop'  onClick={() => navigate('/relojes/store')}>shop now</button>
       </div>
       </div>
       <div className="carousel-item">
@@ -41,7 +45,7 @@ function Hero() {
         <div className='carousel-form'>
         <span className='carousel-title'>GOD'S TIME</span>
         <p className='carousel-desc'>we are in the industry since 2021.</p>
-        <button className='btn carousel-btn-shop'>shop now</button>
+        <button className='btn carousel-btn-shop' onClick={() => navigate('/relojes/store')}>shop now</button>
       </div>
       </div>
     </div>

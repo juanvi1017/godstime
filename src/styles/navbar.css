@@ -33,11 +33,7 @@ nav{
 
 .nav-link:hover{
     /* background-color: var(--secondary-theme-color); */
-    color: var(--theme-color)!important;
-}
-
-.nav-sales{
-    color: var(--theme-color)!important;
+    color: white!important;
 }
 
 .search-input-container{
@@ -143,8 +139,9 @@ nav{
 }
 
 .text-color{
-    color: orange;
+    color: #DEB707;
 }
+
 /* Media Query */
 @media screen and (max-width: 992px) {
     .nav-sidebar-logo{

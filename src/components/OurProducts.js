@@ -11,7 +11,7 @@ import SwiperCore, { Navigation } from "swiper";
 // IMAGES
 import shoppingBagIcon from "../images/icons/shopping-bag.png"
 import addedToBag from "../images/icons/added-to-bag.png"
-import searchIcon from "../images/icons/search.png"
+// import searchIcon from "../images/icons/search.png"
 import menuIcon from "../images/icons/menu.png"
 import slideIcon from "../images/icons/slide.png"
 import saleTag from "../images/icons/sale-tag.png"
@@ -32,20 +32,20 @@ function OurProducts() {
   const navigate = useNavigate();
 
   const [isWide, setIsWide] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(productsData);
 
-  const getSales = useCallback(async () => {
-    const response = await get("product/list")
-    if (response.status === 200) {
-      setData(response.data.data)
-    }
-    else {
-      return response;
-    };
-  }, [])
+  // const getSales = useCallback(async () => {
+  //   const response = await get("product/list")
+  //   if (response.status === 200) {
+  //     setData(response.data.data)
+  //   }
+  //   else {
+  //     return response;
+  //   };
+  // }, [])
 
   useEffect(() => {
-    getSales();
+    // getSales();
     function handleWidth() {
       if (window.innerWidth >= 767) {
         setIsWide(true);
@@ -58,7 +58,8 @@ function OurProducts() {
     return () => {
       window.removeEventListener('resize', handleWidth);
     };
-  }, [getSales]);
+  }, []);
+  // }, [getSales]);
 
 
   const [showMenu, setShowMenu] = useState(false)
@@ -83,10 +84,10 @@ function OurProducts() {
         <span className='section-title'>Productos</span>
         <div className='filter-tools row col-12 justify-content-between align-items-center section-container my-2 mx-auto' >
           <div className='col-xl-3 col-md-6 col-sm-6 mt-2 p-0'>
-            <div className='filter-option search-input-container d-flex align-items-center justify-content-start'>
+            {/* <div className='filter-option search-input-container d-flex align-items-center justify-content-start'>
               <input className='search-input' placeholder='Search...' type="text" />
               <img className='search-icon' src={searchIcon} alt="search icon" />
-            </div>
+            </div> */}
           </div>
           <div className='filter-option filter-show p-0 mt-2 col-xl-3 col-md-6 col-sm-6 justify-content-center show-option d-flex align-items-center'>
             <span className='text-capitalize font-weight-bold mr-1'>show:</span>
@@ -161,8 +162,8 @@ function OurProducts() {
             </div>
         }
         <div className='d-flex justify-content-center'>
-          <button className='sell-btn' onClick={() => navigate('/relojes')}>
-            Ver tienda
+          <button className='sell-btn' onClick={() => navigate('/relojes/store')}>
+            Ver todo
           </button>
         </div>
       </div>

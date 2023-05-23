@@ -8,7 +8,7 @@ function Footer() {
         <div className='container'>
             <div className='row col-12 p-0 m-0'>
                 <div className='col-md-6'>
-                    <Link to ="/" className='d-flex align-items-center'>
+                    <Link to ="/" className='d-flex align-items-center footer-link'>
                         <img className='footer-logo' src={whiteLogo} alt=''/>
                         <h3 className='text-uppercase font-weight-bold m-0 text-color'>God's Time.</h3>
                     </Link>

@@ -4,6 +4,11 @@ export const chatWhatsApp = (product) => {
   win.focus();
 }
 
+export const chatWhatsAppHelp = () => {
+  const win = window.open(`https://wa.me/573007260320?text=Hola!%20m%20interesado%20en%20tu%20producto%20necesito%20ayuda`, '_blank');
+  win.focus();
+}
+
 export const formatoMoneda = (number) => {
   const exp = /(\d)(?=(\d{3})+(?!\d))/g;
   const rep = '$1.';

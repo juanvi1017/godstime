@@ -4,33 +4,35 @@
 }
 
 .footer-section div{
-    color: orange;
+    color: #DEB707;
 }
-
+ul {
+    list-style: none;
+}
 .footer-logo{
     width: 40px;
     margin-right: 5px;
-    color: orange;
+    color: #DEB707;
     object-fit: cover;
 }
 
 .footer-title{
     font-size: 24px; ;
     list-style-type: none;
-    color: orange;
+    color: #DEB707;
     text-transform: uppercase;
     font-weight: bold;
 }
 .footer ul, .footer-link, .footer-text{
     text-transform: uppercase;
-    color: orange;
+    color: #DEB707;
     list-style-type: none;
     font-weight: 100;
 }
 .footer-link:hover{
     text-decoration: none;
-    color: orange;
+    color: white;
 }
 .text-color{
-    color: orange;
+    color: #DEB707;
 }

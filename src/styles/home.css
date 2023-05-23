@@ -14,3 +14,7 @@
     box-shadow: 0px 0px 15px 0px rgba(7,94,84,1);
     transition-duration: 1s;
 }
+
+#root{
+    background-color: white;
+  }

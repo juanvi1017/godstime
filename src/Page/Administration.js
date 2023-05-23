@@ -2,42 +2,17 @@ import React from 'react';
 import "../styles/admin.css";
 import { productsData } from '../data/productsData';
 import searchIcon from "../images/icons/search.png";
-import Navbar from '../components/Navbar';
+import NavbarAdmin from '../components/NavbarAdmin';
+import AddProduct from './ModalProduct';
 
 
 function Administration() {
 
     return (
-        <><Navbar />
+        <><NavbarAdmin />
             <div className="container">
                 <div className="row">
                     <div className="col-xl-2 col-md-3 col-sm-12 products-store-filter">
-                        <div className="container filter">
-                            {/* //fdfsdfs */}
-                        </div>
-                        <div className="filter-phone"> {/* Para smartphone */}
-                            <div className="btn-group d-grid gap-2 col-12 mx-auto" role="group" aria-label="Basic example">
-                                {/* <button type="button" className="btn button-color-filter text-white">Hombre</button>
-                            <button type="button" className="btn button-color-filter text-white">Mujer</button> */}
-                            </div>
-                        </div>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-md-12 filter-price">
-                                    {/* <label className="form-label">Precio Maximo</label>
-                                <input
-                                    type='range'
-                                    onChange={changePrice}
-                                    min={300000}
-                                    max={5000000}
-                                    step={20000}
-                                    value={priceMax}
-                                    className='custom-slider'
-                                ></input>
-                                <p>{formatoMoneda(priceMax)}</p> */}
-                                </div>
-                            </div>
-                        </div>
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-12 filter-price">
@@ -46,7 +21,7 @@ function Administration() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md products-store">
+                    <div className="col-md products-store-admin">
                         <span className='section-title'>Bodega</span>
                         <div className='filter-tools row col-12 justify-content-between align-items-center section-container my-2 mx-auto' >
                             <div className='col-xl-3 col-md-6 col-sm-6 mt-2 p-0'>
@@ -54,6 +29,12 @@ function Administration() {
                                     <input className='search-input' placeholder='Search...' type="text" />
                                     <img className='search-icon' src={searchIcon} alt="search icon" onClick={() => alert('hola')} />
                                 </div>
+                            </div>
+                            {/* Button trigger modal */}
+                            <div className='col-xl-3 col-md-6 col-sm-6 mt-2 p-0'>
+                                <button type="button" className="search-icon btn btn-success" data-bs-toggle="modal" data-bs-target="#addproduct">
+                                    Agregar producto
+                                </button>
                             </div>
                         </div>
                         <div className="d-none text-center">no matching search, try something else...</div>
@@ -98,6 +79,11 @@ function Administration() {
                     </div>
                 </div>
             </div>
+
+            {/* Modal */}
+            <AddProduct
+                title='Agregar producto'
+            />
         </>
     )
 }

@@ -18,7 +18,7 @@ export const PrivateRouter = ({ children }) => {
                 navigate('/login');
             }
         }
-    }, []);
+    }, [navigate, path, user]);
 
     return (
         <>
