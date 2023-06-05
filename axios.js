@@ -1,5 +1,5 @@
-import axios from 'axios'
-import * as https from 'https'
+import axios from 'axios';
+import * as https from 'https';
 
 const axiosInstance = axios.create()
 
