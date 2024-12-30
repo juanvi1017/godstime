@@ -2,7 +2,9 @@ import React from 'react'
 import whiteLogo from "../images/white-logo.png"
 import "../styles/footer.css"
 import { Link } from 'react-router-dom';
+
 function Footer() {
+
   return (
     <div className='footer-section'>
         <div className='container'>
@@ -32,7 +34,7 @@ function Footer() {
                     </ul>
                 </div>
             </div>
-            <p className='text-color text-uppercase text-center p-4'>copyright © 2023 - 2025 all rights reserved</p>
+            <p className='text-color text-uppercase text-center p-4'>copyright © 2023 - 2028 all rights reserved</p>
         </div>
     </div>
   )

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import "../styles/modal.css"
-import { post } from "../apirest";
 import InputFile from '../components/InputFiles';
 
 function ModalProduct({ title = '' }) {
@@ -90,16 +89,7 @@ function ModalProduct({ title = '' }) {
     data.append("detail3", detail3);
     data.append("detail4", detail4);
     data.append("detail5", detail5);
-
-    const response = await post("product/creates",
-      {
-        data
-      })
-    if (response.status === 200) {
-      console.log('Okay')
-    } else {
-      console.log('Error')
-    }
+    console.log(data)
   }
 
   return (

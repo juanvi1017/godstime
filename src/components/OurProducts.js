@@ -16,8 +16,6 @@ import menuIcon from "../images/icons/menu.png"
 import slideIcon from "../images/icons/slide.png"
 import saleTag from "../images/icons/sale-tag.png"
 
-import { get } from "../apirest";
-
 
 // Import Swiper styles
 import "swiper/css";
@@ -34,18 +32,8 @@ function OurProducts() {
   const [isWide, setIsWide] = useState(false);
   const [data, setData] = useState(productsData);
 
-  // const getSales = useCallback(async () => {
-  //   const response = await get("product/list")
-  //   if (response.status === 200) {
-  //     setData(response.data.data)
-  //   }
-  //   else {
-  //     return response;
-  //   };
-  // }, [])
 
   useEffect(() => {
-    // getSales();
     function handleWidth() {
       if (window.innerWidth >= 767) {
         setIsWide(true);
@@ -59,7 +47,6 @@ function OurProducts() {
       window.removeEventListener('resize', handleWidth);
     };
   }, []);
-  // }, [getSales]);
 
 
   const [showMenu, setShowMenu] = useState(false)
@@ -114,7 +101,7 @@ function OurProducts() {
                     return (
                       <SwiperSlide className='product-item col-md-4 justify-content-center' key={product.id}>
                         {product.salePrice ? <img className='sale-tag' src={saleTag} alt='' data-bs-toggle="tooltip" data-bs-placement="bottom" title="Oferta" /> : ""}
-                        <Link to={`/products/${product.id}`}>
+                        <Link to={`/products/${product.gender}/${product.id}`}>
                           <div className='product-buttons'>
                             <img className='product-icon add-to-cart-icon' src={product.carted ? addedToBag : shoppingBagIcon} alt="add to cart" />
                           </div>
@@ -141,7 +128,7 @@ function OurProducts() {
                     return (
                       <div className='product-item col-md-4 col-sm-6 justify-content-center' key={product.id}>
                         {product.salePrice ? <img className='sale-tag' src={saleTag} alt='' /> : ""}
-                        <Link to={`/products/${product.id}`}>
+                        <Link to={`/products/${product.gender}/${product.id}`}>
                           <div className='product-buttons'>
                             <img className='product-icon add-to-cart-icon' src={product.carted ? addedToBag : shoppingBagIcon} alt="add to cart" />
                           </div>
